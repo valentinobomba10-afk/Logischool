@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LogiSchool Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body data-page="home">
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="badge">LS</div>
+          LogiSchool Games
+        </div>
+        <div class="topbar-right">
+          <div class="pill accent" id="gameCount">0 games</div>
+          <div id="userArea"></div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <h1>LogiSchool Games</h1>
+        <p>
+          A premium arcade for focused play. All progress, points, and accounts are stored locally on this
+          device so students can pick up and play anytime.
+        </p>
+        <div class="notice" id="localNote"></div>
+      </section>
+
+      <div class="filters" id="categoryFilters"></div>
+      <div class="game-grid" id="gameGrid"></div>
+    </div>
+
+    <div class="overlay" id="authOverlay">
+      <div class="auth-modal">
+        <div>
+          <h2>Welcome to LogiSchool</h2>
+          <p class="notice">Sign in or create a local account to play and track points.</p>
+        </div>
+        <div class="auth-tabs">
+          <button class="btn ghost" id="tabLogin">Sign In</button>
+          <button class="btn ghost" id="tabCreate">Create</button>
+        </div>
+        <form id="loginForm" style="display: grid; gap: 12px;">
+          <div class="field">
+            <label>Username</label>
+            <input name="login-username" maxlength="18" placeholder="Your username" required />
+          </div>
+          <div class="field">
+            <label>4-digit PIN</label>
+            <input
+              name="login-pin"
+              type="password"
+              inputmode="numeric"
+              pattern="\d{4}"
+              maxlength="4"
+              placeholder="1234"
+              required
+            />
+          </div>
+          <button class="btn primary" type="submit">Sign In</button>
+          <button class="btn ghost" id="showRecoveryBtn" type="button">Forgot PIN? Use Email/SMS Code</button>
+          <div class="auth-recovery-panel" id="recoveryPanel" style="display: none;">
+            <div class="field">
+              <label>Recovery Username</label>
+              <input id="recoveryUsernameInput" maxlength="18" placeholder="Account username" />
+            </div>
+            <div class="auth-tabs auth-tabs-compact">
+              <button class="btn ghost" id="recoveryMethodEmail" type="button">Email</button>
+              <button class="btn ghost" id="recoveryMethodSms" type="button">SMS</button>
+            </div>
+            <button class="btn ghost" id="sendRecoveryCodeBtn" type="button">Send Recovery Code</button>
+            <div class="field">
+              <label>6-digit Code</label>
+              <input
+                id="recoveryCodeInput"
+                inputmode="numeric"
+                pattern="\d{6}"
+                maxlength="6"
+                placeholder="123456"
+              />
+            </div>
+            <div class="field">
+              <label>New 4-digit PIN</label>
+              <input
+                id="recoveryNewPinInput"
+                type="password"
+                inputmode="numeric"
+                pattern="\d{4}"
+                maxlength="4"
+                placeholder="0000"
+              />
+            </div>
+            <button class="btn primary" id="verifyRecoveryCodeBtn" type="button">Verify Code & Reset PIN</button>
+            <div class="notice" id="recoveryStatusText">
+              To use recovery, set a recovery email or phone in Profile first.
+            </div>
+          </div>
+        </form>
+        <form id="createForm" style="display: none; gap: 12px;">
+          <div class="field">
+            <label>Create Username</label>
+            <input name="create-username" maxlength="18" placeholder="Choose a username" required />
+          </div>
+          <div class="field">
+            <label>Choose 4-digit PIN</label>
+            <input
+              name="create-pin"
+              type="password"
+              inputmode="numeric"
+              pattern="\d{4}"
+              maxlength="4"
+              placeholder="0000"
+              required
+            />
+          </div>
+          <div class="field">
+            <label>Recovery Email (optional)</label>
+            <input name="create-recovery-email" type="email" maxlength="180" placeholder="you@example.com" />
+          </div>
+          <div class="field">
+            <label>Recovery Phone (optional)</label>
+            <input name="create-recovery-phone" maxlength="20" inputmode="tel" placeholder="+15551234567" />
+          </div>
+          <button class="btn primary" type="submit">Create Account</button>
+        </form>
+        <div class="notice">Accounts and scores never leave this device.</div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/games.js"></script>
+  </body>
+</html>

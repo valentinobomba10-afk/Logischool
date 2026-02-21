@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LogiSchool Games · Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body data-page="profile">
+    <div class="app">
+      <header class="topbar">
+        <a class="brand" href="index.html">
+          <div class="badge">LS</div>
+          LogiSchool Games
+        </a>
+        <div class="topbar-right" id="userArea"></div>
+      </header>
+
+      <section class="section">
+        <h2>Profile</h2>
+        <div class="profile-grid">
+          <div class="section">
+            <div class="card profile-header" id="profileHeaderCard">
+              <div class="avatar" id="profileAvatar"></div>
+              <div>
+                <h3 id="profileName"></h3>
+                <div class="stat-grid">
+                  <div class="stat-card">
+                    <div class="label">Total Points</div>
+                    <div class="value" id="profilePoints"></div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="label">Tier</div>
+                    <div class="value" id="profileTier"></div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="label">Games Played</div>
+                    <div class="value" id="profileGamesPlayed"></div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="label">Rank</div>
+                    <div class="value" id="profileRank"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="padding: 18px;">
+              <h3>Best Scores</h3>
+              <div class="stat-grid" id="bestScoresList"></div>
+            </div>
+
+            <div class="card" style="padding: 18px;">
+              <h3>Achievements</h3>
+              <div class="chip-grid" id="achievementList"></div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="card" style="padding: 18px;">
+              <h3>Cosmetic Unlocks</h3>
+              <div class="list">Avatar Tiers</div>
+              <div class="chip-grid" id="avatarTierList"></div>
+            </div>
+
+            <div class="card" style="padding: 18px;">
+              <h3>Profile Cosmetics 2.0</h3>
+              <div class="field">
+                <label>Profile Banner</label>
+                <select id="profileBannerSelect"></select>
+              </div>
+              <div class="field">
+                <label>Chat Name Color</label>
+                <select id="chatColorSelect"></select>
+              </div>
+              <div class="field">
+                <label>Title Tag</label>
+                <select id="titleTagSelect"></select>
+              </div>
+              <button class="btn primary" id="saveProfileCosmetics">Save Cosmetics</button>
+              <div class="notice" id="profileCosmeticsHint"></div>
+            </div>
+
+            <div class="card" style="padding: 18px;">
+              <h3>Tournament Badges</h3>
+              <div class="chip-grid" id="tournamentBadgeList"></div>
+            </div>
+
+            <div class="card" style="padding: 18px;">
+              <h3>Daily Quests</h3>
+              <div id="profileDailyQuestList"></div>
+              <button class="btn primary" id="profileDailyClaim" style="margin-top: 10px;">Claim Daily Reward</button>
+              <div class="notice" id="profileDailyStatus"></div>
+            </div>
+
+            <div class="card" style="padding: 18px;">
+              <h3>Profile Photo</h3>
+              <div class="field">
+                <label>Image URL (http/https)</label>
+                <input id="avatarUrlInput" placeholder="https://..." />
+                <div class="notice" id="avatarUrlError"></div>
+              </div>
+              <button class="btn primary" id="avatarUrlSave" style="margin-top: 8px;">Save Image URL</button>
+              <div class="list" style="margin-top: 12px;">Preset Avatars</div>
+              <div class="chip-grid" id="avatarPresets"></div>
+            </div>
+
+            <div class="card" style="padding: 18px;">
+              <h3>Account Settings</h3>
+              <div class="field">
+                <label>Change Username</label>
+                <input id="changeName" maxlength="18" />
+              </div>
+              <div class="field">
+                <label>Change PIN (4 digits)</label>
+                <input
+                  id="changePin"
+                  type="password"
+                  maxlength="4"
+                  inputmode="numeric"
+                  placeholder="Leave blank to keep"
+                />
+              </div>
+              <div class="field">
+                <label>Recovery Email</label>
+                <input id="changeRecoveryEmail" type="email" maxlength="180" placeholder="you@example.com" />
+              </div>
+              <div class="field">
+                <label>Recovery Phone (SMS)</label>
+                <input id="changeRecoveryPhone" maxlength="20" inputmode="tel" placeholder="+15551234567" />
+              </div>
+              <div class="notice" id="recoveryContactStatus">
+                Recovery contact lets you reset PIN from the sign-in screen by code.
+              </div>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button class="btn primary" id="saveAccount">Save Changes</button>
+                <button class="btn warn" id="profileSignOut">Sign Out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/games.js"></script>
+  </body>
+</html>

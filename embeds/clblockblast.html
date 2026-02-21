@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Block Blast Puzzle</title>
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/genizy/bl/TemplateData/favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/genizy/bl/TemplateData/style.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #070b1a;
+      }
+
+      #unity-container {
+        position: fixed;
+        inset: 0;
+      }
+
+      #unity-canvas {
+        width: 100%;
+        height: 100%;
+        background: #070b1a;
+      }
+
+      #unity-loading-bar {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: min(340px, 74vw);
+      }
+
+      #unity-warning {
+        position: absolute;
+        left: 50%;
+        top: 12px;
+        transform: translateX(-50%);
+        z-index: 4;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="unity-container">
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"></div>
+    </div>
+
+    <script>
+      const container = document.querySelector('#unity-container');
+      const canvas = document.querySelector('#unity-canvas');
+      const loadingBar = document.querySelector('#unity-loading-bar');
+      const progressBarFull = document.querySelector('#unity-progress-bar-full');
+      const warningBanner = document.querySelector('#unity-warning');
+
+      function unityShowBanner(message, type) {
+        const node = document.createElement('div');
+        node.textContent = message;
+        if (type === 'error') {
+          node.style.cssText = 'background:#c0392b;color:#fff;padding:8px 10px;border-radius:8px;';
+          warningBanner.appendChild(node);
+        } else {
+          node.style.cssText = 'background:#f1c40f;color:#111;padding:8px 10px;border-radius:8px;';
+          warningBanner.appendChild(node);
+          setTimeout(() => node.remove(), 4000);
+        }
+      }
+
+      const buildUrl = 'https://cdn.jsdelivr.net/gh/genizy/bl/Build';
+      const loaderUrl = `${buildUrl}/BlockBlast1.1-8.loader.js`;
+      const config = {
+        dataUrl: `${buildUrl}/BlockBlast1.1-8.data.unityweb`,
+        frameworkUrl: `${buildUrl}/BlockBlast1.1-8.framework.js.unityweb`,
+        codeUrl: `${buildUrl}/BlockBlast1.1-8.wasm.unityweb`,
+        streamingAssetsUrl: 'StreamingAssets',
+        companyName: 'reun',
+        productName: 'Block Blast Puzzle',
+        productVersion: '1.1',
+        showBanner: unityShowBanner
+      };
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        const meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.head.appendChild(meta);
+      }
+
+      loadingBar.style.display = 'block';
+      const script = document.createElement('script');
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = `${Math.round(progress * 100)}%`;
+        })
+          .then(() => {
+            loadingBar.style.display = 'none';
+          })
+          .catch((error) => {
+            unityShowBanner(String(error || 'Failed to load Block Blast.'), 'error');
+          });
+      };
+      script.onerror = () => {
+        unityShowBanner('Block Blast loader failed to download.', 'error');
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

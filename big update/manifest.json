@@ -1,0 +1,225 @@
+{
+  "version": "2.00",
+  "title": "Big Update 2.00",
+  "homeNotice": "Big Update 2.00 content is now active for everyone.",
+  "items": [
+    "Global online leaderboard across devices with live points",
+    "Shared live countdown synced through Netlify",
+    "New Online mode: Rock Paper Scissors with live matchmaking",
+    "New Online mode: Click Rush real-time click battles",
+    "New Online mode: Connect 4 head-to-head live matches",
+    "New Online mode: Memory Flip race (first to clear all cards wins)",
+    "New game: Wheelie Life Modded",
+    "New game: Google Baseball",
+    "New game: Google Doodle Cricket",
+    "New game: Parking Fury 3",
+    "New game: Block Blast",
+    "Built-in ad blocker toggle in Settings",
+    "Car games AZGAMES.IO scanner auto-refresh",
+    "New game: Ragdoll Hit",
+    "New game: Top Speed Racing 3D",
+    "New game: Ultimate Car Driving Simulator"
+  ],
+  "games": [
+    {
+      "id": "rock-paper-scissors-online",
+      "name": "Rock Paper Scissors Online",
+      "category": "Online",
+      "description": "Match live against another player on a different device.",
+      "tip": "Submit your move quickly so rounds resolve faster.",
+      "instructions": [
+        "Wait in queue until another player joins.",
+        "Pick Rock, Paper, or Scissors each round.",
+        "First to 5 round wins takes the match."
+      ],
+      "accent": "#55d6ff",
+      "accent2": "#8b5cff",
+      "scoreMode": "high",
+      "scoreLabel": "wins"
+    },
+    {
+      "id": "click-rush-online",
+      "name": "Click Rush Online",
+      "category": "Online",
+      "description": "10-second live click race against another player in real time.",
+      "tip": "Start clicking instantly when the timer turns live.",
+      "instructions": [
+        "Queue and wait for another player.",
+        "When the countdown ends, click as fast as possible.",
+        "Most clicks at 10 seconds wins."
+      ],
+      "accent": "#6dd5ff",
+      "accent2": "#ffd84d",
+      "scoreMode": "high",
+      "scoreLabel": "clicks"
+    },
+    {
+      "id": "connect-4-online",
+      "name": "Connect 4 Online",
+      "category": "Online",
+      "description": "Play Connect 4 live against another player on a different device.",
+      "tip": "Control the center columns to create multiple win lines.",
+      "instructions": [
+        "Queue and wait for another player.",
+        "Take turns dropping discs by clicking a column.",
+        "Connect four discs before your opponent."
+      ],
+      "accent": "#ffb347",
+      "accent2": "#ff5f7a",
+      "scoreMode": "high",
+      "scoreLabel": "score"
+    },
+    {
+      "id": "memory-flip-online",
+      "name": "Memory Flip Online",
+      "category": "Online",
+      "description": "Race another player online. First to find all card pairs wins.",
+      "tip": "Memorize a row pattern and avoid random flips.",
+      "instructions": [
+        "Queue and wait for another player.",
+        "Flip cards and match pairs as fast as possible.",
+        "First player to clear all cards wins."
+      ],
+      "accent": "#6dd5ff",
+      "accent2": "#ffb347",
+      "scoreMode": "high",
+      "scoreLabel": "score"
+    },
+    {
+      "id": "wheelie-life-modded",
+      "name": "Wheelie Life Modded",
+      "category": "Unblocked",
+      "description": "Bike balance challenge with modded gameplay and trick control.",
+      "tip": "Feather your throttle to hold long wheelies.",
+      "instructions": [
+        "Use keyboard controls shown in-game.",
+        "Balance your bike and keep the wheelie going.",
+        "Restart and retry to improve your run."
+      ],
+      "accent": "#55d6ff",
+      "accent2": "#ffd84d",
+      "scoreMode": "high",
+      "scoreLabel": "score",
+      "embed": "../embeds/wheelie-life-modded.html"
+    },
+    {
+      "id": "google-baseball",
+      "name": "Google Baseball",
+      "category": "Unblocked",
+      "description": "Classic Google Doodle baseball with simple one-button timing.",
+      "tip": "Wait for the pitch and swing right as the ball reaches the plate.",
+      "instructions": [
+        "Press space or click to swing.",
+        "Time each hit for longer distance.",
+        "Keep batting to set a high score."
+      ],
+      "accent": "#6dd5ff",
+      "accent2": "#5cffb0",
+      "scoreMode": "high",
+      "scoreLabel": "score",
+      "embed": "../embeds/clgooglebaseball.html"
+    },
+    {
+      "id": "google-doodle-cricket",
+      "name": "Google Doodle Cricket",
+      "category": "Unblocked",
+      "description": "Google cricket doodle batting game with quick timing swings.",
+      "tip": "Swing a little late to send cleaner boundary shots.",
+      "instructions": [
+        "Press space or click to bat.",
+        "Time each shot as the ball reaches you.",
+        "Keep scoring until you get out."
+      ],
+      "accent": "#5cffb0",
+      "accent2": "#6dd5ff",
+      "scoreMode": "high",
+      "scoreLabel": "score",
+      "embed": "../embeds/google-doodle-cricket/index.html"
+    },
+    {
+      "id": "parking-fury-3",
+      "name": "Parking Fury 3",
+      "category": "Unblocked",
+      "description": "Precision driving and parking challenges in busy city lanes.",
+      "tip": "Slow down before tight turns to avoid crashes.",
+      "instructions": [
+        "Use arrow keys to steer and drive.",
+        "Follow markers to reach each parking spot.",
+        "Avoid collisions to finish each level."
+      ],
+      "accent": "#ffd84d",
+      "accent2": "#ff5f7a",
+      "scoreMode": "high",
+      "scoreLabel": "score",
+      "embed": "../embeds/clparkingfury3.html"
+    },
+    {
+      "id": "block-blast",
+      "name": "Block Blast",
+      "category": "Unblocked",
+      "description": "Fast block puzzle action where smart placements keep your board clear.",
+      "tip": "Set up combo clears by leaving room for larger shapes.",
+      "instructions": [
+        "Drag and place blocks onto the board.",
+        "Complete rows or columns to clear them.",
+        "Plan ahead to avoid running out of space."
+      ],
+      "accent": "#6dd5ff",
+      "accent2": "#ffb347",
+      "scoreMode": "high",
+      "scoreLabel": "score",
+      "embed": "../embeds/clblockblast.html"
+    },
+    {
+      "id": "ragdoll-hit",
+      "name": "Ragdoll Hit",
+      "category": "Unblocked",
+      "description": "Physics-based stickman fighting with ragdoll knockback and fast rounds.",
+      "tip": "Use quick hits to keep your balance and knock enemies off platforms.",
+      "instructions": [
+        "Use the in-game controls to move and attack.",
+        "Knock out your opponent using momentum and timing.",
+        "Restart quickly and try better combos each round."
+      ],
+      "accent": "#ffb347",
+      "accent2": "#6dd5ff",
+      "scoreMode": "high",
+      "scoreLabel": "score",
+      "embed": "../embeds/clragollhit.html"
+    },
+    {
+      "id": "top-speed-racing-3d",
+      "name": "Top Speed Racing 3D",
+      "category": "Unblocked",
+      "description": "Open-road driving with fast cars, stunts, and freestyle racing challenges.",
+      "tip": "Use smooth steering at high speed to avoid spin-outs on corners.",
+      "instructions": [
+        "Use arrow keys or WASD to drive.",
+        "Explore ramps and roads to build speed.",
+        "Keep control to set longer high-speed runs."
+      ],
+      "accent": "#6dd5ff",
+      "accent2": "#ffb347",
+      "scoreMode": "high",
+      "scoreLabel": "score",
+      "embed": "../embeds/top-speed-racing-3d.html"
+    },
+    {
+      "id": "ultimate-car-driving-simulator",
+      "name": "Ultimate Car Driving Simulator",
+      "category": "Unblocked",
+      "description": "City driving sandbox with free roam and realistic car handling.",
+      "tip": "Brake before sharp turns to keep traction and control.",
+      "instructions": [
+        "Use arrow keys or WASD to steer and drive.",
+        "Explore the map and test car handling.",
+        "Chain clean driving lines for better runs."
+      ],
+      "accent": "#ffb347",
+      "accent2": "#5cffb0",
+      "scoreMode": "high",
+      "scoreLabel": "score",
+      "embed": "../embeds/ultimate-car-driving-simulator.html"
+    }
+  ]
+}

@@ -1,0 +1,341 @@
+/* Global Styles */
+:root {
+  --primary-color: #ffff00;
+  --bg-color: #000;
+  --text-color: #fff;
+  --maze-color: #2121de;
+  --pellet-color: #ffb8ae;
+  --power-pellet-color: #ffb8ff;
+  --ghost-red: #ff0000;
+  --ghost-pink: #ffb8ff;
+  --ghost-blue: #00ffff;
+  --ghost-orange: #ffb852;
+  --button-bg: #4848ff;
+  --button-hover: #3232cd;
+  --focus-outline: #fff 3px solid;
+}
+
+/* High Contrast Mode Colors */
+.high-contrast {
+  --primary-color: #ffff00;
+  --bg-color: #000;
+  --text-color: #fff;
+  --maze-color: #0000ff;
+  --pellet-color: #ffffff;
+  --power-pellet-color: #00ff00;
+  --ghost-red: #ff0000;
+  --ghost-pink: #ff00ff;
+  --ghost-blue: #00ffff;
+  --ghost-orange: #ff8800;
+  --button-bg: #0000ff;
+  --button-hover: #0000aa;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: 16px;
+}
+
+/* Focus Styles for Accessibility */
+*:focus {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+}
+
+h2, h3 {
+  color: var(--primary-color);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Game Container */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+}
+
+.game-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+/* Score and Lives Display */
+.score-container, .lives-container {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+#score-label, #lives-label {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+#score {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+#lives {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.life {
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.life::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-right: 10px solid var(--bg-color);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  top: 0;
+  right: 0;
+}
+
+/* Canvas Container */
+.canvas-container {
+  position: relative;
+  margin: 1rem 0;
+  border: 4px solid var(--maze-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#gameCanvas {
+  display: block;
+  background-color: var(--bg-color);
+}
+
+/* Game Message Overlay */
+.game-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--primary-color);
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: none;
+  z-index: 10;
+  min-width: 200px;
+}
+
+/* Controls Styling */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.control-button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.control-button:hover:not(:disabled) {
+  background-color: var(--button-hover);
+}
+
+.control-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.control-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Toggle Switch for High Contrast */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.toggle-label {
+  margin-right: 0.5rem;
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle-slider {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  background-color: white;
+  transition: transform 0.3s;
+}
+
+.toggle-input:checked + .toggle-slider {
+  background-color: var(--primary-color);
+}
+
+.toggle-input:checked + .toggle-slider::before {
+  transform: translateX(26px);
+}
+
+.toggle-input:focus + .toggle-slider {
+  box-shadow: 0 0 0 3px rgba(255, 255, 0, 0.5);
+}
+
+/* Instructions Section */
+.instructions {
+  margin-top: 1.5rem;
+  width: 100%;
+  border-top: 2px solid var(--maze-color);
+  padding-top: 1rem;
+}
+
+.instruction-content {
+  background-color: rgba(33, 33, 222, 0.2);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.instruction-content p {
+  margin-bottom: 0.75rem;
+}
+
+.instruction-content ul {
+  list-style-position: inside;
+  margin-left: 1rem;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 1rem 0;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .game-container {
+    padding: 1rem;
+  }
+  
+  #gameCanvas {
+    width: 100%;
+    height: auto;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .toggle-container {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}
+.high-contrast {
+  --primary-color: #ffff00;
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --maze-color: #0000ff;
+  --pellet-color: #ffffff;
+  --power-pellet-color: #00ff00;
+  --ghost-red: #ff0000;
+  --ghost-pink: #ff00ff;
+  --ghost-blue: #00ffff;
+  --ghost-orange: #ff8800;
+  --button-bg: #0000ff;
+  --button-hover: #0000aa;
+}

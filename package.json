@@ -1,0 +1,13 @@
+{
+  "name": "logischool-firebase-functions",
+  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@netlify/blobs": "file:./shims/netlify-blobs",
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^5.1.1"
+  }
+}

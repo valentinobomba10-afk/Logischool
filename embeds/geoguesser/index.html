@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logischool GEOGUESSER</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <h1>Logischool GEOGUESSER</h1>
+          <p>Let's explore the world!</p>
+        </div>
+
+        <div class="top-stats" aria-live="polite">
+          <div class="top-stat">
+            <span>Total</span>
+            <strong id="totalScoreLabel">0</strong>
+          </div>
+          <div class="top-stat top-stat-accent">
+            <span>Last Round</span>
+            <strong id="lastRoundScoreLabel">0</strong>
+          </div>
+          <div class="top-stat">
+            <span>Round</span>
+            <strong id="roundLabel">1 / 5</strong>
+          </div>
+          <div class="top-stat">
+            <span>Timer</span>
+            <strong id="timerLabel">100s</strong>
+          </div>
+          <div class="top-stat">
+            <span>High Score</span>
+            <strong id="highScoreLabel">0</strong>
+          </div>
+        </div>
+
+        <div class="top-controls">
+          <label for="difficultySelect">Difficulty</label>
+          <select id="difficultySelect" aria-label="Select difficulty">
+            <option value="easy">Easy (broader scoring)</option>
+            <option value="hard" selected>Hard (random worldwide)</option>
+          </select>
+          <button id="newGameBtn" type="button">New Game</button>
+        </div>
+      </header>
+
+      <main class="game-layout">
+        <section class="street-panel">
+          <iframe
+            id="streetViewFrame"
+            title="Google Street View"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <div class="street-location-mask" aria-hidden="true">LOGISCHOOL GAMES</div>
+        </section>
+
+        <aside class="side-panel">
+          <div class="mini-map-wrap">
+            <div id="map" aria-label="Interactive world map for guesses"></div>
+          </div>
+
+          <button id="submitGuessBtn" class="primary-btn" type="button" disabled>
+            Make Guess
+          </button>
+
+          <div class="scoreboard">
+            <div class="score-row status-row">
+              <span>Status</span>
+              <strong id="statusText">Place your marker on the map.</strong>
+            </div>
+            <div class="score-row">
+              <span>Last Distance</span>
+              <strong id="lastDistanceLabel">-</strong>
+            </div>
+          </div>
+
+          <button id="returnStartBtn" class="secondary-btn" type="button">
+            Return To Start View
+          </button>
+        </aside>
+      </main>
+    </div>
+
+    <section id="roundModal" class="overlay modal" aria-live="polite">
+      <div class="modal-card">
+        <h3 id="roundResultTitle">Round Result</h3>
+        <p><strong>Correct location revealed on the map.</strong></p>
+        <p>Distance: <strong id="distanceValue">0 km</strong></p>
+        <p>Round Score: <strong id="roundScoreValue">0</strong></p>
+        <p>Total Score: <strong id="runningTotalValue">0</strong></p>
+        <button id="nextRoundBtn" type="button">Next Round</button>
+      </div>
+    </section>
+
+    <section id="finalScreen" class="overlay final-screen" aria-live="polite">
+      <div class="final-card">
+        <h2>Game Complete</h2>
+        <p>Difficulty: <strong id="finalDifficulty"></strong></p>
+        <p>Final Score: <strong id="finalScoreValue">0</strong></p>
+        <p>Best Score: <strong id="bestScoreValue">0</strong></p>
+        <div id="roundBreakdown" class="round-breakdown"></div>
+        <button id="restartBtn" type="button">Play Again</button>
+      </div>
+    </section>
+
+    <section id="roundTransition" class="overlay transition-overlay" aria-hidden="true">
+      <p id="transitionText">Round 1</p>
+    </section>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>

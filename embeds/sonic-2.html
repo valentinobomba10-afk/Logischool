@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sonic 2</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #121212;
+        color: #fff;
+        font-family: Arial, sans-serif;
+      }
+
+      #game-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      #game {
+        width: 100%;
+        height: 100%;
+      }
+
+      #restart-hint {
+        position: absolute;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 10;
+        padding: 20px;
+      }
+
+      #restart-hint .card {
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 14px;
+        padding: 16px 20px;
+        max-width: 380px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        font-size: 15px;
+        line-height: 1.4;
+      }
+
+      #restart-hint .title {
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      #restart-hint .spinner {
+        width: 26px;
+        height: 26px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #6dd5ff;
+        border-radius: 50%;
+        margin: 12px auto 0;
+        animation: spin 0.9s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="game"></div>
+      <div id="restart-hint">
+        <div class="card">
+          <div class="title">Need to Start the Game?</div>
+          <div>After the spinner appears, press <strong>Restart</strong> in the corner of the game window.</div>
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const hintKey = 'ls_sonic2_restart_hint_shown';
+      if (!localStorage.getItem(hintKey)) {
+        setTimeout(() => {
+          const hint = document.getElementById('restart-hint');
+          if (hint) hint.style.display = 'flex';
+          setTimeout(() => {
+            if (hint) hint.style.display = 'none';
+          }, 6000);
+        }, 3000);
+        localStorage.setItem(hintKey, '1');
+      }
+    </script>
+
+    <script>
+      EJS_player = "#game";
+      EJS_core = "segaGG";
+      EJS_gameName = "Sonic 2";
+      EJS_color = "#0064ff";
+      EJS_startOnLoaded = true;
+      EJS_pathtodata = "https://cdn.jsdelivr.net/gh/genizy/emu@master/";
+      EJS_gameUrl = "https://cdn.jsdelivr.net/gh/bubbls/UGS-file-encryption@166ec3b0a83d406f20475f40e98b5b24570bfe6b/Sonic%20The%20Hedgehog%202%20(World).zip";
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/gh/genizy/emu@master/loader.js";
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

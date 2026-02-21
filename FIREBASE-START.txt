@@ -1,0 +1,27 @@
+Firebase quick start (from this folder):
+
+1) Login
+   npx firebase-tools login
+
+2) Select project
+   npx firebase-tools use --add
+
+3) IMPORTANT: Enable Blaze plan in Firebase project billing
+   (Cloud Functions need it for online server features)
+
+4) In Firebase Console, create Firestore database (Native mode)
+   (online state is stored there)
+
+5) Install backend dependencies (first time only)
+   cd functions
+   npm install
+   cd ..
+
+6) Deploy website + server
+   npx firebase-tools deploy --only hosting,functions
+
+Notes:
+- Online features now run on Firebase Functions via:
+  /.netlify/functions/*
+- If online still fails, check Functions logs:
+  npx firebase-tools functions:log

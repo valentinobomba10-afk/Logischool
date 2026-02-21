@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pac-Man</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        max-width: none;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      main {
+        width: 100%;
+        display: grid;
+        place-items: center;
+      }
+
+      .game-container {
+        width: min(620px, 92vw);
+        padding: 0.75rem;
+        background: rgba(0, 0, 0, 0.75);
+        box-shadow: none;
+        border-radius: 12px;
+      }
+
+      .game-header {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 0.5rem;
+      }
+
+      .game-header h1 {
+        display: none;
+      }
+
+      .score-container,
+      .lives-container {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .canvas-container {
+        margin: 0 auto;
+        border-width: 3px;
+        width: min(560px, 94vw);
+      }
+
+      #gameCanvas {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .controls {
+        margin-top: 0.75rem;
+      }
+
+      footer,
+      .instructions {
+        display: none !important;
+      }
+    </style>
+    <meta name="description" content="Pac-Man game" />
+  </head>
+  <body>
+    <main>
+      <div class="game-container">
+        <div class="game-header" aria-live="polite">
+          <div class="score-container">
+            <span id="score-label">Score:</span>
+            <span id="score" aria-live="polite">0</span>
+          </div>
+          <div class="lives-container">
+            <span id="lives-label">Lives:</span>
+            <div id="lives" aria-live="polite">
+              <span class="life"></span>
+              <span class="life"></span>
+              <span class="life"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="canvas-container">
+          <canvas id="gameCanvas" width="560" height="620" aria-label="Pac-Man game area" role="img"></canvas>
+          <div id="gameMessage" class="game-message" aria-live="assertive"></div>
+        </div>
+
+        <div class="controls">
+          <button id="startButton" class="control-button" aria-label="Start game">Start Game</button>
+          <button id="pauseButton" class="control-button" aria-label="Pause game" disabled>Pause</button>
+        </div>
+      </div>
+    </main>
+
+    <audio id="startSound" preload="auto">
+      <source src="sounds/game-start.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="chompSound" preload="auto">
+      <source src="sounds/chomp.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="powerPelletSound" preload="auto">
+      <source src="sounds/power-pellet.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="ghostEatenSound" preload="auto">
+      <source src="sounds/ghost-eaten.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="deathSound" preload="auto">
+      <source src="sounds/death.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="victorySound" preload="auto">
+      <source src="sounds/victory.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="game.js"></script>
+  </body>
+</html>

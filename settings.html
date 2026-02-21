@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LogiSchool Games · Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body data-page="settings">
+    <div class="app">
+      <header class="topbar">
+        <a class="brand" href="index.html">
+          <div class="badge">LS</div>
+          LogiSchool Games
+        </a>
+        <div class="topbar-right" id="userArea"></div>
+      </header>
+
+      <section class="section">
+        <h2>Settings</h2>
+        <div class="layout-split">
+          <div class="card" style="padding: 18px;">
+            <h3>Theme</h3>
+            <p class="notice">Dark mode is the default. Switch any time.</p>
+            <div style="display: flex; gap: 10px;">
+              <button class="btn ghost" data-theme-choice="dark">Dark Theme</button>
+              <button class="btn ghost" data-theme-choice="light">Light Theme</button>
+            </div>
+            <h3 style="margin-top: 18px;">Built-in Ad Blocker</h3>
+            <p class="notice">Blocks popups and common ad overlays in embedded games.</p>
+            <button class="btn ghost" id="adBlockToggle">Ad Blocker: On</button>
+            <div class="notice" id="adBlockStatus" style="margin-top: 10px;"></div>
+          </div>
+
+          <div class="card" style="padding: 18px;">
+            <h3>Redeem Code</h3>
+            <div class="field">
+              <label>Enter code</label>
+              <input id="redeemCodeInput" placeholder="LOGI10K" />
+            </div>
+            <button class="btn primary" id="redeemButton">Redeem</button>
+            <div class="notice" id="redeemMessage"></div>
+          </div>
+        </div>
+
+        <div class="layout-split" style="margin-top: 18px;">
+          <div class="card" style="padding: 18px;">
+            <h3>Active Unlocks</h3>
+            <div id="unlockList"></div>
+          </div>
+          <div class="card" style="padding: 18px;">
+            <h3>Redeemed Codes</h3>
+            <div id="redeemedList"></div>
+          </div>
+        </div>
+
+        <div class="notice" style="margin-top: 16px;">
+          Most settings are local on this device.
+        </div>
+      </section>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/games.js"></script>
+  </body>
+</html>

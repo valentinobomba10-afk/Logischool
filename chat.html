@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LogiSchool Games · Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body data-page="chat">
+    <div class="app">
+      <header class="topbar">
+        <a class="brand" href="index.html">
+          <div class="badge">LS</div>
+          LogiSchool Games
+        </a>
+        <div class="topbar-right" id="userArea"></div>
+      </header>
+
+      <section class="section">
+        <h2>Chat</h2>
+        <div class="layout-split chat-layout">
+          <div class="card" style="padding: 18px;">
+            <h3>Private Chat</h3>
+            <div class="field">
+              <label>Username</label>
+              <input id="dmTargetInput" maxlength="18" placeholder="Who do you want to message?" />
+            </div>
+            <button class="btn primary" id="openDmBtn">Open DM</button>
+            <div class="notice" id="dmStatus">No DM selected.</div>
+            <div class="admin-player-list" id="dmThreadList"></div>
+
+            <h3 style="margin-top: 18px;">Group Chats</h3>
+            <div class="field">
+              <label>Group Name</label>
+              <input id="groupNameInput" maxlength="40" placeholder="Arcade Squad" />
+            </div>
+            <div class="field">
+              <label>Members (comma usernames)</label>
+              <input id="groupMembersInput" maxlength="220" placeholder="player1, player2" />
+            </div>
+            <button class="btn ghost" id="createGroupBtn">Create Group</button>
+            <div class="notice" id="groupStatus">Create or select a group.</div>
+            <div class="admin-player-list" id="groupList"></div>
+          </div>
+
+          <div class="card" style="padding: 18px;">
+            <h3 id="chatConversationTitle">Conversation</h3>
+            <div class="game-chat-list" id="chatMessageList"></div>
+            <div class="game-chat-form" style="margin-top: 10px;">
+              <input id="chatMessageInput" maxlength="220" placeholder="Type a message..." />
+              <button class="btn primary" id="chatSendBtn">Send</button>
+            </div>
+            <div class="notice" id="chatStatus">Choose a DM or group to start chatting.</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/games.js"></script>
+  </body>
+</html>

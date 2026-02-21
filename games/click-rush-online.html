@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LogiSchool Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-page="game">
+    <div class="app">
+      <header class="topbar">
+        <a class="brand" href="../index.html">
+          <div class="badge">LS</div>
+          LogiSchool Games
+        </a>
+        <div class="topbar-right">
+          <div class="pill accent" id="gameTag"></div>
+        </div>
+      </header>
+
+      <main class="game-layout">
+        <section class="stage card" id="gameStage">
+          <div class="stage-header">
+            <div>
+              <h1 id="gameTitle">Game</h1>
+              <p id="gameDesc">Loading...</p>
+            </div>
+            <div class="stage-actions">
+              <div class="stat" id="gameBest">Best: --</div>
+            </div>
+          </div>
+          <div class="game-root" id="gameRoot"></div>
+        </section>
+        <aside class="side">
+          <div class="card">
+            <h3>How to Play</h3>
+            <ul id="gameInstructions"></ul>
+          </div>
+          <div class="card">
+            <h3>Quick Tip</h3>
+            <p id="gameTip"></p>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>window.GAME_ID = "click-rush-online";</script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/games.js"></script>
+  </body>
+</html>

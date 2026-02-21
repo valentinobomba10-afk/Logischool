@@ -1,0 +1,6 @@
+{
+  "name": "@netlify/blobs",
+  "version": "0.0.0-firebase-shim",
+  "main": "index.js",
+  "private": true
+}
